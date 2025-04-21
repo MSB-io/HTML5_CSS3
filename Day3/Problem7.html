@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Not Found</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .error-container {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .error-message {
+            color: #d32f2f;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>File Not Found Examples</h1>
+
+        <!-- Image not found example -->
+        <div>
+            <p><strong>Missing Image Example:</strong></p>
+            <img src="missing-image.jpg" alt="Missing image" width="200">
+            <p class="error-message"><i>Error: Image file 'missing-image.jpg' could not be found</i></p>
+        </div>
+
+        <!-- Audio not found example -->
+        <div>
+            <p><strong>Missing Audio Example:</strong></p>
+            <audio controls>
+                <source src="missing-audio.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <p class="error-message"><i>Error: Audio file 'missing-audio.mp3' could not be found</i></p>
+        </div>
+    </div>
+</body>
+</html>

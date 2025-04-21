@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Loading Error Demo</title>
+    <style>
+        body {
+            background-color: #fffbed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .error-container {
+            text-align: center;
+            padding: 20px;
+        }
+        .error-message {
+            margin-top: 10px;
+            color: #666;
+        }
+        img {
+            max-width: 300px;
+            border: 2px dashed #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <img src="nonexistent-image.jpg" alt="This image doesn't exist">
+        <div class="error-message">
+            <i>😢</i>
+            <p>Oops! The image failed to load.</p>
+        </div>
+    </div>
+</body>
+</html>

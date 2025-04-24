@@ -5,71 +5,214 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML + CSS Beginner Practice Guide</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary-color: #4CAF50;
+            --primary-light: #e8f5e9;
+            --primary-dark: #2e7d32;
+            --secondary-color: #03A9F4;
+            --text-color: #333;
+            --light-text: #fff;
+            --background: #f9f9f9;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            margin-bottom: 2rem;
+        }
+
         nav {
-            background-color: #333;
-            color: white;
-            padding: 5px;
+            background-color: var(--primary-dark);
+            color: var(--light-text);
+            padding: 15px 0;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
         }
+
         nav ul {
             list-style-type: none;
             padding: 0;
+            display: flex;
+            justify-content: center;
         }
+
         nav ul li {
             display: inline;
-            margin-right: 20px;
+            margin: 0 20px;
         }
+
         nav ul li a {
-            color: white;
+            color: var(--light-text);
             text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 4px;
         }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
         p {
-            margin: 20px;
+            margin: 15px;
             padding: 20px;
             background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.2s ease;
         }
+
+        p:hover {
+            transform: translateY(-5px);
+        }
+
+        h3 {
+            padding: 15px 0;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+        }
+
+        section {
+            padding: 20px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         footer {
             text-align: center;
-            background-color: #333;
+            background-color: var(--primary-dark);
+            color: var(--light-text);
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom styles for the header banner */
+        .banner {
+            background-color: var(--primary-color);
             color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .banner p1 {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Styles for the practice section */
+        .practice-box {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+            background-color: var(--primary-light);
+            padding: 15px;
+            margin: 20px;
+            border-radius: 8px;
+            display: block;
+            box-shadow: var(--box-shadow);
+        }
+
+        .demo-box {
             padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .demo-box:hover {
+            transform: scale(1.02);
+        }
+
+        .flex-container {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .flex-item {
+            flex: 1;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            min-width: 150px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .alert-box {
+            background-color: #fff3cd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            box-shadow: var(--box-shadow);
+        }
+
+        .centered-box {
+            text-align: center;
+            border: 2px dashed var(--primary-color);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-weight: 500;
+            background-color: var(--primary-light);
         }
     </style>
 </head>
 <body>
     <section>
         <header>
-            <div style="background-color: rgb(86, 196, 86); color: white;">
-        <div style="display: flex; justify-content: center;">
-            <h1>HTML + CSS Beginner Practice Guide</h1>
-        </div>
-        <div style="display: flex; justify-content:center; padding-bottom: 20px;">
-            <p1>Understand basic HTML tags and CSS properties</p1>
-        </div>
-        </div>
-        <div>
-            <nav>
-                <ul>
-                    <li><a href="#html">HTML</a></li>
-                    <li><a href="#css">CSS</a></li>
-                    <li><a href="#practice">Practice</a></li>
-                </ul>
-            </nav>
-        </div>
+            <div class="banner">
+                <div style="display: flex; justify-content: center;">
+                    <h1>HTML + CSS Beginner Practice Guide</h1>
+                </div>
+                <div style="display: flex; justify-content:center; padding-bottom: 20px;">
+                    <p1>Understand basic HTML tags and CSS properties</p1>
+                </div>
+            </div>
+            <div>
+                <nav>
+                    <ul>
+                        <li><a href="#html">HTML</a></li>
+                        <li><a href="#css">CSS</a></li>
+                        <li><a href="#practice">Practice</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
     </section>
     <section id="html">
         <div style="margin: 20px;">
-            <h3 style="border-left: 4px solid rgb(86, 196, 86); padding-left: 10px;">📘 HTML Basics</h3>
+            <h3 style="border-left: 4px solid var(--primary-color); padding-left: 15px;">📘 HTML Basics</h3>
         </div>
         <div>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor, accusantium!</p>
@@ -86,7 +229,7 @@
     </section>
     <section id="css">
         <div style="margin: 20px;">
-            <h3 style="border-left: 4px solid rgb(86, 196, 86); padding-left: 10px;">🎨 CSS Basics</h3>
+            <h3 style="border-left: 4px solid var(--primary-color); padding-left: 15px;">🎨 CSS Basics</h3>
         </div>
         <div>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, blanditiis.</p>
@@ -103,43 +246,41 @@
     </section>
     <section id="practice">
         <div style="margin: 20px;">
-            <h3 style="border-left: 4px solid rgb(86, 196, 86); padding-left: 10px;">🧠 Practice Examples</h3>
+            <h3 style="border-left: 4px solid var(--primary-color); padding-left: 15px;">🧠 Practice Examples</h3>
         </div>
         <div>
-            <p1 style="border-left: 4px solid rgb(86, 196, 86); padding-left: 10px; background-color: rgb(218, 255, 218); padding:10px; margin: 20px; display: flex; border-radius: 5px">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, impedit.</p1>
+            <p1 class="practice-box">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, impedit.</p1>
         </div>
-        <div style="margin: 20px; display: flex; flex-direction: column;">
+        <div style="margin: 20px;">
             <!-- Box 1: Padding 20px, Margin 10px -->
-            <div style="padding: 20px; background-color: #d8f1df;">
-            Box 1: Padding: 20px | Margin: 10px
+            <div class="demo-box" style="background-color: #d8f1df;">
+                Box 1: Padding: 20px | Margin: 10px
             </div>
             
             <!-- Box 2: Padding 0, Margin 30px -->
-            <div style="padding: 0; background-color: #f0d6d6;">
-            <b>
-            Box 2:</b> Padding: 0 | Margin: 30px
+            <div class="demo-box" style="background-color: #f0d6d6; padding: 15px;">
+                <b>Box 2:</b> Padding: 0 | Margin: 30px
             </div>
             
             <!-- Flex container with two items -->
-            <div style="display: flex; gap: 10px; margin: 10px 0;"></div>
-            <div style="background-color: #a8d1e7; padding: 10px;">Flex Item 1</div>
-            <div style="background-color: #a8e7a8; padding: 10px;">Flex Item 2</div>
+            <div class="flex-container">
+                <div class="flex-item" style="background-color: #a8d1e7;">Flex Item 1</div>
+                <div class="flex-item" style="background-color: #a8e7a8;">Flex Item 2</div>
             </div>
             
             <!-- Text align, font-size, border-radius experiment -->
-            <div style="border-left: 4px solid rgb(86, 196, 86); padding-left: 10px; background-color: rgb(218, 255, 218); padding:10px; margin: 20px; display: flex; border-radius: 5px">
-            Experiment with text-align, font-size, and border-radius
+            <div class="practice-box">
+                Experiment with text-align, font-size, and border-radius
             </div>
             
             <!-- Centered and styled text -->
-            <div style="text-align: center; border: 1px dashed green; padding: 15px; margin: 10px 0;">
-            Centered and styled text!
+            <div class="centered-box">
+                Centered and styled text!
             </div>
             
             <!-- Rounded corner alert box -->
-             
-            <div style="background-color: #fff3cd; border-radius: 10px; padding: 15px; margin: 10px 0;">
-            Rounded corner alert box.
+            <div class="alert-box">
+                Rounded corner alert box.
             </div>
         </div>
     </section>

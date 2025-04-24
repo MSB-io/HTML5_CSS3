@@ -130,13 +130,14 @@
         /* Styles for the practice section */
         .practice-box {
             border-left: 4px solid var(--primary-color);
-            padding-left: 15px;
-            background-color: var(--primary-light);
             padding: 15px;
-            margin: 20px;
+            margin: 15px 0;
             border-radius: 8px;
             display: block;
+            background-color: var(--primary-light);
             box-shadow: var(--box-shadow);
+            width: calc(100% - 40px); /* Make width consistent, accounting for margin */
+            max-width: 100%;
         }
 
         .demo-box {
@@ -270,7 +271,7 @@
             
             <!-- Text align, font-size, border-radius experiment -->
             <div class="practice-box">
-                Experiment with text-align, font-size, and border-radius
+                <p1>Experiment with text-align, font-size, and border-radius</p1>
             </div>
             
             <!-- Centered and styled text -->

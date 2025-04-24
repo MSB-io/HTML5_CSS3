@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 Advanced HTML Practice Set</title>
+    <!-- For question 8 - Favicon -->
+    <link rel="icon" href="https://via.placeholder.com/32" type="image/png">
+    <link rel="shortcut icon" href="https://via.placeholder.com/16" type="image/png">
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        /* For question 5 - Styled Card with hover */
+        .product-card:hover {
+            background-color: #f0f0f0;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        
+        /* For question 11 - Styled nested lists */
+        .custom-nav {
+            padding-left: 20px;
+        }
+        .custom-nav li {
+            list-style-image: url('https://via.placeholder.com/10');
+            padding: 5px 0;
+        }
+        
+        /* For question 12 - Inline block divs */
+        .side-by-side {
+            display: inline-block;
+            width: 30%;
+            margin: 1%;
+            padding: 10px;
+            border: 1px solid black;
+            vertical-align: top;
+        }
+        
+        /* For question 10 - Alternating background */
+        .invoice tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Advanced HTML Practice Set</h1>
+    
+    <section>
+        <h2>1. HTML Formatting — Resume Snippet</h2>
+        <h2><u>👨‍💼 John Doe</u></h2>
+        <p><strong>Email:</strong> <em>john.doe@example.com</em></p>
+        <p><mark>Skills:</mark> <small>HTML, CSS, Git, Debugging</small></p>
+        <p>Graduation: May 15<sup>th</sup>, 2023</p>
+        <p>Started programming in 2019<sub>late fall</sub></p>
+    </section>
+    
+    <section>
+        <h2>2. HTML Quotations — Review Section</h2>
+        <blockquote cite="https://www.amazon.com">
+            "This product changed my life!" – <abbr title="Verified Customer">VC</abbr>
+        </blockquote>
+        <q>Worth every penny.</q>
+        
+        <blockquote cite="https://www.trustpilot.com">
+            "Excellent customer service and fast shipping!" – <abbr title="Premium Member">PM</abbr>
+        </blockquote>
+        
+        <blockquote cite="https://www.ebay.com">
+            "Would definitely buy again. The quality exceeded my expectations." – <abbr title="Regular Customer">RC</abbr>
+        </blockquote>
+    </section>
+    
+    <section>
+        <h2>3. HTML Comments — Annotated Page</h2>
+        <!-- Header of the site -->
+        <h1>Welcome to My Page</h1> <!-- Main heading for SEO -->
+        
+        <!-- This section holds user details -->
+        <p>Name: Alice</p> <!-- User profile name -->
+        
+        <!-- Navigation section -->
+        <nav>
+            <ul> <!-- Main navigation links -->
+                <li>Home</li> <!-- Links to homepage -->
+                <li>About</li> <!-- Company information -->
+            </ul>
+        </nav>
+    </section>
+    
+    <section>
+        <h2>4. HTML Colors — Color Palette Table</h2>
+        <table border="1">
+            <tr>
+                <td style="background-color: #ff4d4d;">#ff4d4d</td>
+                <td style="background-color: #4dff88;">#4dff88</td>
+                <td style="background-color: #4da6ff;">#4da6ff</td>
+            </tr>
+            <tr>
+                <td style="background-color: rgb(255, 99, 71);">RGB(255, 99, 71)</td>
+                <td style="background-color: rgb(60, 179, 113);">RGB(60, 179, 113)</td>
+                <td style="background-color: rgb(106, 90, 205);">RGB(106, 90, 205)</td>
+            </tr>
+            <tr>
+                <td style="background-color: hsl(0, 100%, 50%);">HSL(0, 100%, 50%)</td>
+                <td style="background-color: hsl(120, 100%, 50%);">HSL(120, 100%, 50%)</td>
+                <td style="background-color: hsl(240, 100%, 50%);">HSL(240, 100%, 50%)</td>
+            </tr>
+        </table>
+    </section>
+    
+    <section>
+        <h2>5. HTML CSS — Styled Card</h2>
+        <div class="product-card" style="border: 2px solid #333; padding: 20px; width: 300px; background-color: #fafafa;">
+            <h3 style="color: #333;">📦 Product Name</h3>
+            <p style="font-size: 14px;">Some short description here.</p>
+        </div>
+    </section>
+    
+    <section>
+        <h2>6. HTML Links — Button Style Links</h2>
+        <a href="https://chat.openai.com" style="padding: 10px 20px; background: green; color: white; text-decoration: none; border-radius: 5px; display: inline-block; margin: 5px;">
+            Go to ChatGPT
+        </a>
+        
+        <a href="https://www.google.com" style="padding: 10px 20px; background: blue; color: white; text-decoration: none; border-radius: 5px; display: inline-block; margin: 5px;">
+            Search Google
+        </a>
+        
+        <a href="https://www.github.com" style="padding: 10px 20px; background: black; color: white; text-decoration: none; border-radius: 5px; display: inline-block; margin: 5px;">
+            Visit GitHub
+        </a>
+    </section>
+    
+    <section>
+        <h2>7. HTML Images — Image Grid</h2>
+        <table>
+            <tr>
+                <td><img src="https://via.placeholder.com/100" alt="A beautiful mountain landscape with snow-capped peaks at sunset"></td>
+                <td><img src="https://via.placeholder.com/100" alt="A serene beach scene with turquoise waters and white sand"></td>
+            </tr>
+            <tr>
+                <td><img src="https://via.placeholder.com/100" alt="A bustling city street with unique architecture and vibrant colors"></td>
+                <td><img src="https://via.placeholder.com/100" alt="A tranquil forest clearing with sunlight streaming through ancient trees"></td>
+            </tr>
+        </table>
+    </section>
+    
+    <section>
+        <h2>8. HTML Favicon — Multiple Icons</h2>
+        <p>Check the browser tab for the favicon. Two different favicons have been linked in the head section.</p>
+    </section>
+    
+    <section>
+        <h2>9. HTML Page Title — Dynamic Concepts</h2>
+        <p>Check the browser tab for the title with emoji: "📝 Advanced HTML Practice Set"</p>
+    </section>
+    
+    <section>
+        <h2>10. HTML Tables — Billing Invoice</h2>
+        <table border="1" class="invoice">
+            <caption><strong>🧾 Invoice Summary</strong></caption>
+            <tr><th>Item</th><th>Qty</th><th>Price</th></tr>
+            <tr><td>Pen</td><td>2</td><td>$1.00</td></tr>
+            <tr><td>Notebook</td><td>1</td><td>$3.50</td></tr>
+            <tr><td>Highlighters</td><td>3</td><td>$2.25</td></tr>
+            <tr><td>Paper clips</td><td>20</td><td>$1.75</td></tr>
+            <tr><td colspan="2">Total</td><td>$8.50</td></tr>
+        </table>
+    </section>
+    
+    <section>
+        <h2>11. HTML Lists — Nested Navigation Menu</h2>
+        <ul class="custom-nav">
+            <li>Home</li>
+            <li>About
+                <ul>
+                    <li>Team</li>
+                    <li>Mission</li>
+                </ul>
+            </li>
+            <li>Services
+                <ul>
+                    <li>Web Design</li>
+                    <li>Development
+                        <ul>
+                            <li>Frontend</li>
+                            <li>Backend</li>
+                        </ul>
+                    </li>
+                    <li>SEO</li>
+                </ul>
+            </li>
+            <li>Contact</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>12. HTML Block & Inline — Layout Demo</h2>
+        <div style="border: 1px solid black; padding: 10px;">
+            <span style="color: red;">Red</span> and
+            <span style="color: green;">Green</span> in a block.
+        </div>
+        
+        <h3>Side-by-Side Divs:</h3>
+        <div class="side-by-side">
+            <h4>Section 1</h4>
+            <p>This is the first section content.</p>
+        </div>
+        <div class="side-by-side">
+            <h4>Section 2</h4>
+            <p>This is the second section content.</p>
+        </div>
+        <div class="side-by-side">
+            <h4>Section 3</h4>
+            <p>This is the third section content.</p>
+        </div>
+    </section>
+</body>
+</html>

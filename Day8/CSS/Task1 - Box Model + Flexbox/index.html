@@ -3,139 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS</title>
+    <title>Form Styling Tasks</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            line-height: 1.6;
             margin: 20px;
             padding: 20px;
+            background-color: #f9f9f9;
+
         }
+
         h2 {
+            text-align: center;
             color: #333;
+            margin-top: 30px;
         }
-        div {
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        /* Task 1: Style the Basic Form */
+        form {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            margin: 50px auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border: #333 solid 1px;
+            box-sizing: border-box;
         }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 25%;
-        }
+
+        input[type="text"], 
+        input[type="email"], 
         button {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
         button:hover {
-            background-color: #0056b3;
+            background-color: #45a049;
+        }
+
+        /* Task 2: Style Password Fields */
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="password"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        input[type="password"]::placeholder {
+            color: #aaa;
+        }
+
+        /* Task 3: Style Checkboxes and Radio Buttons */
+        input[type="checkbox"], 
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        label {
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        label:hover {
+            color: #4CAF50;
+        }
+
+        /* Task 4: Style Select Dropdown */
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+
+        select:hover {
+            border-color: #4CAF50;
+        }
+
+        option {
+            padding: 10px;
+        }
+
+        /* Task 5: Style Submit and Reset Buttons */
+        button[type="reset"] {
+            background-color: #f44336;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Task 6: Style a Textarea */
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            box-sizing: border-box;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        /* Task 7: Create a Responsive Form */
+        @media (max-width: 768px) {
+            form {
+                width: 90%;
+            }
+        }
+
+        /* Task 8: Style Form Validation States */
+        input:valid {
+            border-color: green;
+        }
+
+        input:invalid:not(:placeholder-shown) {
+            border-color: red;
+        }
+
+        input:invalid:focus:not(:placeholder-shown) {
+            box-shadow: 0 0 5px red;
         }
     </style>
 </head>
 <body>
-    <!-- Task 1: Create a Basic Box -->
-    <h2>Task 1: Basic Box</h2>
-    <div style="background-color: lightblue; padding: 15px; border: 3px solid black; margin: 20px;">
-        Hello World
-    </div>
+    <h2>Task 1: Basic Form</h2>
+    <form action="/submit-form" method="POST">
+        <label for="name1">Name:</label>
+        <input type="text" id="name1" name="name" required>
 
-    <!-- Task 2: Play with Different Paddings -->
-    <h2>Task 2: Different Paddings</h2>
-    <div style="background-color: #ffcccc; border: 1px solid #333; padding: 10px 20px 30px 40px;">
-        This box has different padding on each side
-    </div>
+        <label for="email1">Email:</label>
+        <input type="email" id="email1" name="email" required>
 
-    <!-- Task 3: Margin vs Padding -->
-    <h2>Task 3: Margin vs Padding</h2>
-    <div style="display: flex; margin-bottom: 20px;">
-        <div style="background-color: #ccffcc; border: 1px solid #333; padding: 30px; margin: 5px;">
-            Box with more padding
-        </div>
-        <div style="background-color: #ccccff; border: 1px solid #333; padding: 5px; margin: 30px;">
-            Box with more margin
-        </div>
-    </div>
+        <button type="submit">Submit</button>
+    </form>
 
-    <!-- Task 4: Flex Row Alignment -->
-    <h2>Task 4: Flex Row Alignment</h2>
-    <div style="display: flex;">
-        <div style="background-color: #ff9999; padding: 20px; margin: 5px;">Box 1</div>
-        <div style="background-color: #99ff99; padding: 20px; margin: 5px;">Box 2</div>
-        <div style="background-color: #9999ff; padding: 20px; margin: 5px;">Box 3</div>
-    </div>
+    <h2>Task 2: Password Fields</h2>
+    <form action="/submit-form" method="POST">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
-    <!-- Task 5: Center Content with Flexbox -->
-    <h2>Task 5: Center Content with Flexbox</h2>
-    <div style="display: flex; justify-content: center; align-items: center; height: 150px; background-color: #f5f5f5;">
-        <div style="background-color: #ffcc99; padding: 20px;">Centered Box</div>
-    </div>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
 
-    <!-- Task 6: Flex Column Layout -->
-    <h2>Task 6: Flex Column Layout</h2>
-    <div style="display: flex; flex-direction: column; align-items: center; background-color: #f5f5f5; padding: 20px;">
-        <div style="background-color: #ff9999; padding: 15px; margin: 5px; width: 100px; text-align: center;">Box 1</div>
-        <div style="background-color: #99ff99; padding: 15px; margin: 5px; width: 100px; text-align: center;">Box 2</div>
-        <div style="background-color: #9999ff; padding: 15px; margin: 5px; width: 100px; text-align: center;">Box 3</div>
-    </div>
+        <button type="submit">Submit</button>
+    </form>
 
-    <!-- Task 7: Add Gap Between Flex Items -->
-    <h2>Task 7: Gap Between Flex Items</h2>
-    <div style="display: flex; gap: 20px; background-color: #f5f5f5; padding: 20px;">
-        <div style="background-color: #ff9999; padding: 15px;">Box 1</div>
-        <div style="background-color: #99ff99; padding: 15px;">Box 2</div>
-        <div style="background-color: #9999ff; padding: 15px;">Box 3</div>
-    </div>
+    <h2>Task 3: Checkboxes and Radio Buttons</h2>
+    <form action="/submit-form" method="POST">
+        <label><input type="checkbox" id="subscribe" name="subscribe"> Subscribe to Newsletter</label><br>
 
-    <!-- Task 8: Responsive Flexbox Challenge -->
-    <h2>Task 8: Responsive Flexbox</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 10px; background-color: #f5f5f5; padding: 20px;">
-        <div style="background-color: #ffcc99; padding: 15px; width: 100px;">Box 1</div>
-        <div style="background-color: #ccffcc; padding: 15px; width: 100px;">Box 2</div>
-        <div style="background-color: #ccccff; padding: 15px; width: 100px;">Box 3</div>
-        <div style="background-color: #ffccff; padding: 15px; width: 100px;">Box 4</div>
-        <div style="background-color: #ffffcc; padding: 15px; width: 100px;">Box 5</div>
-    </div>
+        <label><input type="radio" id="male" name="gender" value="Male"> Male</label>
+        <label><input type="radio" id="female" name="gender" value="Female"> Female</label>
 
-    <!-- Bonus: Profile Card -->
-    <h2>Bonus: Profile Card</h2>
-    <div style="display: flex; flex-direction: column; align-items: center; width: 300px; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin: 20px auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <img src="https://via.placeholder.com/150" alt="Profile" style="border-radius: 50%;">
-        <h3 style="margin: 10px 0 5px 0;">Manthan Bhosale</h3>
-        <p style="text-align: center; margin: 0 0 10px 0;">Web Developer passionate about creating beautiful, responsive websites.</p>
-    </div>
+        <button type="submit">Submit</button>
+    </form>
 
-    <!-- Bonus: Button Row -->
-    <h2>Bonus: Button Row</h2>
-    <div style="display: flex; justify-content: center; gap: 15px; margin: 20px 0;">
-        <button style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">Submit</button>
-        <button style="padding: 10px 20px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer;">Cancel</button>
-        <button style="padding: 10px 20px; background-color: #2196F3; color: white; border: none; border-radius: 4px; cursor: pointer;">Learn More</button>
-    </div>
+    <h2>Task 4: Select Dropdown</h2>
+    <form action="/submit-form" method="POST">
+        <label for="country">Select your country:</label>
+        <select id="country" name="country">
+            <option value="india">India</option>
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
+            <option value="canada">Canada</option>
+        </select>
 
-    <!-- Bonus: Feature Grid -->
-    <h2>Bonus: Feature Grid</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; max-width: 800px; margin: 0 auto;">
-        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; width: 45%; min-width: 200px; text-align: center; padding: 20px; margin: 20px;">
-            <h3>Fast</h3>
-            <p>Lightning-quick performance</p>
-        </div>
-        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; width: 45%; min-width: 200px; text-align: center;">
-            <h3>Secure</h3>
-            <p>Enterprise-grade security</p>
-        </div>
-        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; width: 45%; min-width: 200px; text-align: center;">
-            <h3>Easy</h3>
-            <p>Simple and intuitive interface</p>
-        </div>
-        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; width: 45%; min-width: 200px; text-align: center;">
-            <h3>Powerful</h3>
-            <p>Advanced features and capabilities</p>
-        </div>
-    </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Task 5: Submit and Reset Buttons</h2>
+    <form action="/submit-form" method="POST">
+        <label for="name5">Name:</label>
+        <input type="text" id="name5" name="name" required>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <h2>Task 6: Text Area</h2>
+    <form action="/submit-form" method="POST">
+        <label for="feedback">Your Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Enter your feedback..."></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Task 7: Responsive Form</h2>
+    <form action="/submit-form" method="POST">
+        <label for="name7">Name:</label>
+        <input type="text" id="name7" name="name" required>
+
+        <label for="email7">Email:</label>
+        <input type="email" id="email7" name="email" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Task 8: Form Validation States</h2>
+    <form action="/submit-form" method="POST">
+        <label for="name8">Name:</label>
+        <input type="text" id="name8" name="name" placeholder="Enter your name" required>
+
+        <label for="email8">Email:</label>
+        <input type="email" id="email8" name="email" placeholder="Enter your email" required>
+
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>

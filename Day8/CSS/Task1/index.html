@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        div {
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 25%;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Task 1: Create a Basic Box -->
+    <h2>Task 1: Basic Box</h2>
+    <div style="background-color: lightblue; padding: 15px; border: 3px solid black; margin: 20px;">
+        Hello World
+    </div>
+
+    <!-- Task 2: Play with Different Paddings -->
+    <h2>Task 2: Different Paddings</h2>
+    <div style="background-color: #ffcccc; border: 1px solid #333; padding: 10px 20px 30px 40px;">
+        This box has different padding on each side
+    </div>
+
+    <!-- Task 3: Margin vs Padding -->
+    <h2>Task 3: Margin vs Padding</h2>
+    <div style="display: flex; margin-bottom: 20px;">
+        <div style="background-color: #ccffcc; border: 1px solid #333; padding: 30px; margin: 5px;">
+            Box with more padding
+        </div>
+        <div style="background-color: #ccccff; border: 1px solid #333; padding: 5px; margin: 30px;">
+            Box with more margin
+        </div>
+    </div>
+
+    <!-- Task 4: Flex Row Alignment -->
+    <h2>Task 4: Flex Row Alignment</h2>
+    <div style="display: flex;">
+        <div style="background-color: #ff9999; padding: 20px; margin: 5px;">Box 1</div>
+        <div style="background-color: #99ff99; padding: 20px; margin: 5px;">Box 2</div>
+        <div style="background-color: #9999ff; padding: 20px; margin: 5px;">Box 3</div>
+    </div>
+
+    <!-- Task 5: Center Content with Flexbox -->
+    <h2>Task 5: Center Content with Flexbox</h2>
+    <div style="display: flex; justify-content: center; align-items: center; height: 150px; background-color: #f5f5f5;">
+        <div style="background-color: #ffcc99; padding: 20px;">Centered Box</div>
+    </div>
+
+    <!-- Task 6: Flex Column Layout -->
+    <h2>Task 6: Flex Column Layout</h2>
+    <div style="display: flex; flex-direction: column; align-items: center; background-color: #f5f5f5; padding: 20px;">
+        <div style="background-color: #ff9999; padding: 15px; margin: 5px; width: 100px; text-align: center;">Box 1</div>
+        <div style="background-color: #99ff99; padding: 15px; margin: 5px; width: 100px; text-align: center;">Box 2</div>
+        <div style="background-color: #9999ff; padding: 15px; margin: 5px; width: 100px; text-align: center;">Box 3</div>
+    </div>
+
+    <!-- Task 7: Add Gap Between Flex Items -->
+    <h2>Task 7: Gap Between Flex Items</h2>
+    <div style="display: flex; gap: 20px; background-color: #f5f5f5; padding: 20px;">
+        <div style="background-color: #ff9999; padding: 15px;">Box 1</div>
+        <div style="background-color: #99ff99; padding: 15px;">Box 2</div>
+        <div style="background-color: #9999ff; padding: 15px;">Box 3</div>
+    </div>
+
+    <!-- Task 8: Responsive Flexbox Challenge -->
+    <h2>Task 8: Responsive Flexbox</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; background-color: #f5f5f5; padding: 20px;">
+        <div style="background-color: #ffcc99; padding: 15px; width: 100px;">Box 1</div>
+        <div style="background-color: #ccffcc; padding: 15px; width: 100px;">Box 2</div>
+        <div style="background-color: #ccccff; padding: 15px; width: 100px;">Box 3</div>
+        <div style="background-color: #ffccff; padding: 15px; width: 100px;">Box 4</div>
+        <div style="background-color: #ffffcc; padding: 15px; width: 100px;">Box 5</div>
+    </div>
+
+    <!-- Bonus: Profile Card -->
+    <h2>Bonus: Profile Card</h2>
+    <div style="display: flex; flex-direction: column; align-items: center; width: 300px; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin: 20px auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <img src="https://via.placeholder.com/150" alt="Profile" style="border-radius: 50%;">
+        <h3 style="margin: 10px 0 5px 0;">Manthan Bhosale</h3>
+        <p style="text-align: center; margin: 0 0 10px 0;">Web Developer passionate about creating beautiful, responsive websites.</p>
+    </div>
+
+    <!-- Bonus: Button Row -->
+    <h2>Bonus: Button Row</h2>
+    <div style="display: flex; justify-content: center; gap: 15px; margin: 20px 0;">
+        <button style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">Submit</button>
+        <button style="padding: 10px 20px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer;">Cancel</button>
+        <button style="padding: 10px 20px; background-color: #2196F3; color: white; border: none; border-radius: 4px; cursor: pointer;">Learn More</button>
+    </div>
+
+    <!-- Bonus: Feature Grid -->
+    <h2>Bonus: Feature Grid</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; max-width: 800px; margin: 0 auto;">
+        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; width: 45%; min-width: 200px; text-align: center; padding: 20px; margin: 20px;">
+            <h3>Fast</h3>
+            <p>Lightning-quick performance</p>
+        </div>
+        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; width: 45%; min-width: 200px; text-align: center;">
+            <h3>Secure</h3>
+            <p>Enterprise-grade security</p>
+        </div>
+        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; width: 45%; min-width: 200px; text-align: center;">
+            <h3>Easy</h3>
+            <p>Simple and intuitive interface</p>
+        </div>
+        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; width: 45%; min-width: 200px; text-align: center;">
+            <h3>Powerful</h3>
+            <p>Advanced features and capabilities</p>
+        </div>
+    </div>
+</body>
+</html>

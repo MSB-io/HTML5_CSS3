@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        /* Task 1: Profile Card */
+        .profile-card {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .profile-image img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            margin-right: 20px;
+            border: 1px solid #fff;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+        
+        .profile-info {
+            flex-grow: 1;
+        }
+        
+        /* Task 2: Navigation Bar */
+        .navbar {
+            background-color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .navbar ul {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            list-style-type: none;
+            margin: 0;
+        }
+        
+        .navbar li {
+            margin: 10px;
+        }
+        
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .navbar a:hover {
+            background-color: #555;
+        }
+        
+        /* Task 3: 3-Column Layout */
+        .layout-container {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .sidebar {
+            width: 200px;
+            padding: 20px;
+            background-color: #e0e0e0;
+            min-height: 300px;
+        }
+        
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        /* Challenge: Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        /* Responsive Designs */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .layout-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+    <!-- Task 1: Profile Card -->
+    <div class="profile-card">
+        <div class="profile-image">
+            <img src="https://via.placeholder.com/150" alt="Profile Image">
+        </div>
+        <div class="profile-info">
+            <h2>Manthan Bhosale</h2>
+            <p>Web Developer with a passion for coding and design. Specializing in modern frontend frameworks and responsive layouts.</p>
+        </div>
+    </div>
+
+    <!-- Task 2: Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Task 3: 3-Column Layout -->
+    <div class="layout-container">
+        <div class="sidebar left">
+            <h3>Left Sidebar</h3>
+            <p>Navigation links or additional information can go here.</p>
+        </div>
+        <div class="main-content">
+            <h2>Main Content Area</h2>
+            <p>This is the main content section that takes the majority of the space. It contains the primary information on the page.</p>
+            <p>It uses flexbox to grow and adapt to the available space.</p>
+        </div>
+        <div class="sidebar right">
+            <h3>Right Sidebar</h3>
+            <p>Additional information, ads, or widgets can be placed here.</p>
+        </div>
+    </div>
+
+    <!-- Challenge: Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 My Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

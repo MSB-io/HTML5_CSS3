@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms: Comprehensive Overview</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        h1, h2 {
+            color: #2d3748;
+            font-weight: 600;
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+        section:hover {
+            transform: translateY(-1px);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        label {
+            font-weight: 500;
+            color: #4a5568;
+        }
+        input, select, textarea {
+            padding: 10px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+        }
+        button {
+            padding: 12px 16px;
+            background-color: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        button:hover {
+            background-color: #3182ce;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Forms: Comprehensive Overview</h1>
+
+    <section>
+        <h2>1. Basic Form Structure</h2>
+        <form action="/submit-form" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>2. Input Fields – Text, Password, and Email</h2>
+        <form>
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+        </form>
+    </section>
+
+    <section>
+        <h2>3. Checkbox and Radio Buttons</h2>
+        <form>
+            <div>
+                <label for="subscribe">Subscribe to newsletter:</label>
+                <input type="checkbox" id="subscribe" name="subscribe">
+            </div>
+            <div>
+                <label>Choose your favorite color:</label>
+                <input type="radio" id="red" name="color" value="red">
+                <label for="red">Red</label>
+                <input type="radio" id="blue" name="color" value="blue">
+                <label for="blue">Blue</label>
+            </div>
+        </form>
+    </section>
+
+    <section>
+        <h2>4. Select Dropdown</h2>
+        <form>
+            <label for="city">Select your city:</label>
+            <select id="city" name="city">
+                <option value="nyc">New York</option>
+                <option value="la">Los Angeles</option>
+                <option value="sf">San Francisco</option>
+            </select>
+        </form>
+    </section>
+
+    <section>
+        <h2>5. Textarea (Multi-line Text Input)</h2>
+        <form>
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+        </form>
+    </section>
+
+    <section>
+        <h2>6. File Upload</h2>
+        <form>
+            <label for="file">Upload your resume:</label>
+            <input type="file" id="file" name="resume">
+        </form>
+    </section>
+
+    <section>
+        <h2>7. Button Types</h2>
+        <form>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+            <button type="button" onclick="alert('Hello!')">Click Me</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>8. Grouping Form Elements</h2>
+        <form>
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name">
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name">
+            </fieldset>
+        </form>
+    </section>
+
+    <section>
+        <h2>9. Form Validation</h2>
+        <form>
+            <div>
+                <label for="username-val">Username:</label>
+                <input type="text" id="username-val" name="username" required>
+            </div>
+            <div>
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" pattern="\d{3}[-]\d{3}[-]\d{4}" required>
+            </div>
+            <div>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="18" max="100" required>
+            </div>
+        </form>
+    </section>
+
+    <section>
+        <h2>10. Form Action and Method</h2>
+        <form action="submit_form.php" method="POST">
+            <label for="email-action">Email:</label>
+            <input type="email" id="email-action" name="email" required>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>11. Multiple Forms on One Page</h2>
+        <form action="login.php" method="POST">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="email" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <form action="register.php" method="POST">
+            <label for="register-email">Email:</label>
+            <input type="email" id="register-email" name="email" required>
+            <button type="submit">Register</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>12. Hidden Input Fields</h2>
+        <form>
+            <input type="hidden" name="user_id" value="12345">
+            <button type="submit">Submit with Hidden Field</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>13. Styling Forms</h2>
+        <style>
+            input[type="text"], input[type="email"], input[type="password"] {
+                padding: 10px;
+                margin: 5px;
+                width: 100%;
+                border: 1px solid #ccc;
+            }
+            button {
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
+        <form>
+            <input type="text" placeholder="Styled text input">
+            <input type="email" placeholder="Styled email input">
+            <button type="button">Styled Button</button>
+        </form>
+    </section>
+</body>
+</html>

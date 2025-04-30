@@ -12,40 +12,69 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
-            background-color: #f0f0f0;
-            padding: 20px;
+            background:#888;
+            padding: 30px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         h1 {
             text-align: center;
-            color: #333;
+            color: white;
             margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         p {
             text-align: center;
-            color: #333;
-            margin-bottom: 30px;
+            color: white;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .galleries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
         }
 
         .gallery-container {
-            max-width: 600px;
-            margin: 0 auto 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 1/1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
         .gallery {
             width: 100%;
-            height: 400px;
-            border: 2px solid #333;
+            flex: 1;
+            border: none;
+            border-radius: 8px;
             overflow-y: scroll;
             scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
+            margin-bottom: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .gallery.x-scroll {
-            height: 300px;
             overflow-y: hidden;
             overflow-x: scroll;
             scroll-snap-type: x mandatory;
@@ -53,7 +82,6 @@
         }
 
         .gallery.both-scroll {
-            height: 300px;
             overflow-y: scroll;
             overflow-x: scroll;
             display: flex;
@@ -65,12 +93,11 @@
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
-            height: 300px;
+            height: calc(100% - 10px);
         }
 
         .gallery.both-scroll .slide {
-            width: 300px;
-            height: 300px;
+            aspect-ratio: 1/1;
             flex-shrink: 0;
         }
 
@@ -92,118 +119,175 @@
 
         .slide {
             scroll-snap-align: center;
-            height: 100%;
-            width: 100%;
+            aspect-ratio: 1/1;
+            height: auto;
+            width: auto;
+            min-height: 200px;
+            min-width: 200px;
+            max-width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 5rem;
             font-weight: bold;
             flex-shrink: 0;
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+            margin: 0 auto;
+        }
+
+        .slide:hover {
+            transform: scale(0.98);
         }
 
         .slide:nth-child(1) {
-            background-color: #1a1a1a;
+            background: linear-gradient(45deg, #1a1a1a, #333);
         }
 
         .slide:nth-child(2) {
-            background-color: #ff7700;
+            background: linear-gradient(45deg, #ff7700, #ff9a44);
         }
 
         .slide:nth-child(3) {
-            background-color: #7777bb;
+            background: linear-gradient(45deg, #7777bb, #9999cc);
         }
 
         .slide:nth-child(4) {
-            background-color: #d13e6b;
+            background: linear-gradient(45deg, #d13e6b, #e66a8f);
         }
 
         .caption {
             text-align: center;
-            margin-top: 10px;
+            margin-top: auto;
+            padding-top: 10px;
             color: #333;
             font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Custom scrollbar */
+        .gallery::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        .gallery::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .gallery::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .gallery::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .galleries-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .gallery-container {
+                padding: 15px;
+            }
+            
+            .slide {
+                min-height: 150px;
+                min-width: 150px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>CSS Scroll Snap Gallery</h1>
-    <p>On all examples, scroll slowly to "feel" the snap points.</p>
+    <div class="container">
+        <h1>CSS Scroll Snap Gallery</h1>
+        <p>On all examples, scroll slowly to "feel" the snap points.</p>
 
-    <div class="gallery-container">
-        <div class="gallery">
-            <div class="slide">1</div>
-            <div class="slide">2</div>
-            <div class="slide">3</div>
-            <div class="slide">4</div>
-        </div>
-        <div class="caption">scroll-snap-type: y mandatory;</div>
-    </div>
-
-    <div class="gallery-container">
-        <div class="gallery x-scroll">
-            <div class="slide">1</div>
-            <div class="slide">2</div>
-            <div class="slide">3</div>
-            <div class="slide">4</div>
-        </div>
-        <div class="caption">scroll-snap-type: x mandatory;</div>
-    </div>
-
-    <div class="gallery-container">
-        <div class="gallery both-mandatory both-scroll">
-            <div class="slide-row">
-                <div class="slide">1</div>
-                <div class="slide">2</div>
-                <div class="slide">3</div>
-                <div class="slide">4</div>
+        <div class="galleries-grid">
+            <div class="gallery-container">
+                <div class="gallery">
+                    <div class="slide">1</div>
+                    <div class="slide">2</div>
+                    <div class="slide">3</div>
+                    <div class="slide">4</div>
+                </div>
+                <div class="caption">scroll-snap-type: y mandatory;</div>
             </div>
-            <div class="slide-row">
-                <div class="slide">5</div>
-                <div class="slide">6</div>
-                <div class="slide">7</div>
-                <div class="slide">8</div>
+
+            <div class="gallery-container">
+                <div class="gallery x-scroll">
+                    <div class="slide">1</div>
+                    <div class="slide">2</div>
+                    <div class="slide">3</div>
+                    <div class="slide">4</div>
+                </div>
+                <div class="caption">scroll-snap-type: x mandatory;</div>
+            </div>
+
+            <div class="gallery-container">
+                <div class="gallery both-mandatory both-scroll">
+                    <div class="slide-row">
+                        <div class="slide">1</div>
+                        <div class="slide">2</div>
+                        <div class="slide">3</div>
+                        <div class="slide">4</div>
+                    </div>
+                    <div class="slide-row">
+                        <div class="slide">5</div>
+                        <div class="slide">6</div>
+                        <div class="slide">7</div>
+                        <div class="slide">8</div>
+                    </div>
+                </div>
+                <div class="caption">scroll-snap-type: both mandatory;</div>
+            </div>
+
+            <div class="gallery-container">
+                <div class="gallery proximity-x x-scroll">
+                    <div class="slide">1</div>
+                    <div class="slide">2</div>
+                    <div class="slide">3</div>
+                    <div class="slide">4</div>
+                </div>
+                <div class="caption">scroll-snap-type: x proximity;</div>
+            </div>
+
+            <div class="gallery-container">
+                <div class="gallery proximity-y">
+                    <div class="slide">1</div>
+                    <div class="slide">2</div>
+                    <div class="slide">3</div>
+                    <div class="slide">4</div>
+                </div>
+                <div class="caption">scroll-snap-type: y proximity;</div>
+            </div>
+
+            <div class="gallery-container">
+                <div class="gallery both-proximity both-scroll">
+                    <div class="slide-row">
+                        <div class="slide">1</div>
+                        <div class="slide">2</div>
+                        <div class="slide">3</div>
+                        <div class="slide">4</div>
+                    </div>
+                    <div class="slide-row">
+                        <div class="slide">5</div>
+                        <div class="slide">6</div>
+                        <div class="slide">7</div>
+                        <div class="slide">8</div>
+                    </div>
+                </div>
+                <div class="caption">scroll-snap-type: both proximity;</div>
             </div>
         </div>
-        <div class="caption">scroll-snap-type: both mandatory;</div>
-    </div>
-
-    <div class="gallery-container">
-        <div class="gallery proximity-x x-scroll">
-            <div class="slide">1</div>
-            <div class="slide">2</div>
-            <div class="slide">3</div>
-            <div class="slide">4</div>
-        </div>
-        <div class="caption">scroll-snap-type: x proximity;</div>
-    </div>
-
-    <div class="gallery-container">
-        <div class="gallery proximity-y">
-            <div class="slide">1</div>
-            <div class="slide">2</div>
-            <div class="slide">3</div>
-            <div class="slide">4</div>
-        </div>
-        <div class="caption">scroll-snap-type: y proximity;</div>
-    </div>
-
-    <div class="gallery-container">
-        <div class="gallery both-proximity both-scroll">
-            <div class="slide-row">
-                <div class="slide">1</div>
-                <div class="slide">2</div>
-                <div class="slide">3</div>
-                <div class="slide">4</div>
-            </div>
-            <div class="slide-row">
-                <div class="slide">5</div>
-                <div class="slide">6</div>
-                <div class="slide">7</div>
-                <div class="slide">8</div>
-            </div>
-        </div>
-        <div class="caption">scroll-snap-type: both proximity;</div>
     </div>
 </body>
 </html>

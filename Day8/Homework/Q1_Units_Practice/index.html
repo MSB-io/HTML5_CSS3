@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSS Units Practice</title>
+    <style>
+        body {
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 900px;
+            gap: 10px;
+        }
+
+        .box {
+            background-color: #6aae5d;
+            color: white;
+            text-align: center;
+            padding: 25px 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Box 1 - rem with padding and px */
+        .box-1 {
+            width: 100px;
+            max-width: 100%;
+            height: 250px;
+            padding: 1rem;
+        }
+
+        /* Box 2 - vh and vw */
+        .box-2 {
+            width: 15vw;
+            height: 15vh;
+        }
+
+        /* Box 3 - % */
+        .box-3 {
+            width: 15%;
+            height: 150px;
+        }
+
+        /* Box 4 - vmin */
+        .box-4 {
+            width: 15vmin;
+            height: 250px;
+        }
+
+        /* Box 5 - em */
+        .box-5 {
+            width: 10em;
+            font-size: 1.2em;
+            height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Units Practice</h1>
+    
+    <div class="container">
+        <div class="box box-1">
+            <p>This box uses rem for padding and px for max-width</p>
+        </div>
+        
+        <div class="box box-2">
+            <p>This box uses vw for width and vh for height</p>
+        </div>
+        
+        <div class="box box-3">
+            <p>This box uses % for width and height</p>
+        </div>
+        
+        <div class="box box-4">
+            <p>This box uses vmin for width and height</p>
+        </div>
+        
+        <div class="box box-5">
+            <p>This box uses em for width and font-size</p>
+        </div>
+    </div>
+</body>
+</html></div>

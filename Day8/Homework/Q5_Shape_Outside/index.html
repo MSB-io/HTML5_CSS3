@@ -3,54 +3,435 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shape Outside CSS Property</title>
+    <title>CSS Shape Outside Property Guide</title>
     <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-bg: #f5f8fa;
+            --dark-text: #333;
+            --code-bg: #f7f9fb;
+            --code-border: #e1e4e8;
+            --circle-gradient: linear-gradient(145deg, #e74c3c, #c0392b);
+            --ellipse-gradient: linear-gradient(145deg, #3498db, #2980b9);
+            --polygon-gradient: linear-gradient(145deg, #27ae60, #16a085);
+            --inset-gradient: linear-gradient(145deg, #9b59b6, #8e44ad);
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 20px;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
         }
         
         .container {
-            max-width: 700px;
-            margin: 0 auto;
-            border: 1px solid #000;
-            padding: 20px;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            padding: 30px 40px;
             background-color: white;
         }
         
+        /* Typography */
         h1 {
             text-align: center;
             margin-top: 0;
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 15px;
         }
         
-        .circle {
-            width: 150px;
-            height: 150px;
-            background-color: #D13B3B;
-            border-radius: 50%;
-            float: left;
-            shape-outside: circle();
-            margin-right: 50px;
+        h2 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin-top: 40px;
             margin-bottom: 20px;
+            clear: both;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
         }
         
         p {
             color: #444;
-            line-height: 1.6;
-            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            letter-spacing: 0.3px;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            background-color: rgba(52, 152, 219, 0.1);
+            padding: 20px 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            margin-bottom: 30px;
+        }
+        
+        /* Shape Elements */
+        .shape {
+            margin-bottom: 20px;
+            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .circle {
+            width: 180px;
+            height: 180px;
+            background: var(--circle-gradient);
+            border-radius: 50%;
+            float: left;
+            shape-outside: circle(50%);
+            margin-right: 25px;
+        }
+        
+        .ellipse {
+            width: 240px;
+            height: 160px;
+            background: var(--ellipse-gradient);
+            border-radius: 50%;
+            float: right;
+            shape-outside: ellipse(45% 45% at 50% 50%);
+            margin-left: 50px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .polygon {
+            width: 200px;
+            height: 200px;
+            background: var(--polygon-gradient);
+            float: left;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%);
+            shape-outside: polygon(0% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%);
+            margin-right: 25px;
+        }
+        
+        .inset {
+            width: 180px;
+            height: 180px;
+            background: var(--inset-gradient);
+            float: right;
+            clip-path: inset(15% 15% 15% 15% round 30px);
+            shape-outside: inset(15% 15% 15% 15% round 30px);
+            margin-left: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        /* Code Samples */
+        pre {
+            background-color: var(--code-bg);
+            border: 1px solid var(--code-border);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
+        }
+        
+        code {
+            font-family: 'Cascadia Code', 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
+            color: #e74c3c;
+            background-color: rgba(240, 240, 240, 0.5);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.95em;
+        }
+        
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #333;
+            display: block;
+            line-height: 1.5;
+        }
+        
+        .code-comment {
+            color: #6a737d;
+            font-style: italic;
+        }
+
+        .property {
+            color: #005cc5;
+        }
+
+        .value {
+            color: #d73a49;
+        }
+
+        .selector {
+            color: #22863a;
+        }
+        
+        /* Notes and Tips */
+        .note {
+            background-color: rgba(255, 252, 220, 0.7);
+            border-left: 4px solid #f1c40f;
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin: 25px 0;
+        }
+
+        .note strong {
+            color: #7d6608;
+        }
+        
+        /* Section containers */
+        .shape-section {
+            overflow: hidden;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .browser-support {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+            justify-content: center;
+        }
+        
+        .browser {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            min-width: 120px;
+        }
+        
+        .browser-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px 20px;
+                margin: 20px 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            pre {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .circle, .polygon {
+                width: 120px;
+                height: 120px;
+                margin-right: 15px;
+            }
+            
+            .ellipse, .inset {
+                width: 120px;
+                height: 120px;
+                margin-left: 15px;
+            }
+            
+            .ellipse {
+                height: 90px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .intro {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Shape Outside CSS Property</h1>
+        <h1>CSS Shape Outside Property</h1>
         
-        <div class="circle"></div>
+        <div class="intro">
+            <p>The <code>shape-outside</code> CSS property defines a shape—which may be non-rectangular—around which adjacent inline content should flow. Instead of content flowing in a rectangular box around floated elements, it can flow along custom shapes, creating more visually interesting layouts.</p>
+        </div>
+
+        <div class="shape-section">
+            <h2>Circle</h2>
+            <div class="shape circle"></div>
+            <p>
+                The <strong>shape-outside: circle()</strong> property creates a circular wrapping boundary. This is perfect for circular images or design elements where text should flow naturally around them. In this example, we're using <code>shape-outside: circle(50%)</code> which creates a circular shape with a radius of 50% of the element's dimensions.
+            </p>
+            <p>
+                Circles are one of the simplest shape functions available in CSS. They can be particularly effective for profile images, decorative elements, or call-to-action buttons where text should wrap naturally around the curved edge.
+            </p>
+            
+            <pre><code><span class="selector">.circle</span> {
+    <span class="property">width</span>: <span class="value">180px</span>;
+    <span class="property">height</span>: <span class="value">180px</span>;
+    <span class="property">border-radius</span>: <span class="value">50%</span>;
+    <span class="property">float</span>: <span class="value">left</span>;
+    <span class="property">shape-outside</span>: <span class="value">circle(50%)</span>;
+    <span class="property">margin-right</span>: <span class="value">25px</span>;
+    <span class="code-comment">/* Visual appearance (not required for shape-outside) */</span>
+    <span class="property">background</span>: <span class="value">linear-gradient(145deg, #e74c3c, #c0392b)</span>;
+}</code></pre>
+        </div>
         
+        <div class="shape-section">
+            <h2>Ellipse</h2>
+            <div class="shape ellipse"></div>
+            <p>
+                The <strong>shape-outside: ellipse()</strong> property creates an elliptical wrapping boundary. This is useful when you need an oval shape rather than a perfect circle. We're using <code>shape-outside: ellipse(45% 45% at 50% 50%)</code> which creates an ellipse with an x-radius of 45% and a y-radius of 45%, centered in the box.
+            </p>
+            <p>
+                Ellipses provide more flexibility than circles as they can be stretched horizontally or vertically to better fit your content needs. They're excellent for landscape-oriented images or design elements where you want text to flow around an oval shape.
+            </p>
+            
+            <pre><code><span class="selector">.ellipse</span> {
+    <span class="property">width</span>: <span class="value">240px</span>;
+    <span class="property">height</span>: <span class="value">160px</span>;
+    <span class="property">border-radius</span>: <span class="value">50%</span>;
+    <span class="property">float</span>: <span class="value">right</span>;
+    <span class="property">shape-outside</span>: <span class="value">ellipse(45% 45% at 50% 50%)</span>;
+    <span class="property">margin-left</span>: <span class="value">30px</span>;
+    <span class="code-comment">/* The 'at 50% 50%' positions the ellipse center */</span>
+}</code></pre>
+
+            <div class="note">
+                <strong>Note:</strong> When using right-floating elements with shape-outside, adding a sufficient left margin is essential to prevent text from overlapping with the shape.
+            </div>
+        </div>
+        
+        <div class="shape-section">
+            <h2>Polygon</h2>
+            <div class="shape polygon"></div>
+            <p>
+                The <strong>shape-outside: polygon()</strong> property allows for complex custom shapes. Using coordinate pairs, you can create any multi-sided shape you want. In this example, we're using <code>shape-outside: polygon(0% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%)</code> to create a shape with a notch in the bottom right corner.
+            </p>
+            <p>
+                Polygons offer the most flexibility of all the shape functions. You can create triangles, stars, speech bubbles, or any other custom shape you can imagine. This makes them perfect for creating unique layouts and visual interest in your designs.
+            </p>
+            
+            <pre><code><span class="selector">.polygon</span> {
+    <span class="property">width</span>: <span class="value">200px</span>;
+    <span class="property">height</span>: <span class="value">200px</span>;
+    <span class="property">float</span>: <span class="value">left</span>;
+    <span class="property">shape-outside</span>: <span class="value">polygon(0% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%)</span>;
+    <span class="code-comment">/* Using clip-path to match the visual appearance to the shape-outside */</span>
+    <span class="property">clip-path</span>: <span class="value">polygon(0% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%)</span>;
+}</code></pre>
+        </div>
+        
+        <div class="shape-section">
+            <h2>Inset</h2>
+            <div class="shape inset"></div>
+            <p>
+                The <strong>shape-outside: inset()</strong> property creates a rectangular shape with optional rounded corners. It's like creating a rounded rectangle for text to wrap around. Our example uses <code>shape-outside: inset(15% 15% 15% 15% round 30px)</code> which creates a centered inset with 30px rounded corners.
+            </p>
+            <p>
+                Inset shapes are perfect when you need text to wrap around rectangular elements with rounded corners. They provide a clean, modern look while still allowing for flexible text flow.
+            </p>
+            
+            <pre><code><span class="selector">.inset</span> {
+    <span class="property">width</span>: <span class="value">180px</span>;
+    <span class="property">height</span>: <span class="value">180px</span>;
+    <span class="property">float</span>: <span class="value">right</span>;
+    <span class="property">shape-outside</span>: <span class="value">inset(15% 15% 15% 15% round 30px)</span>;
+    <span class="code-comment">/* Syntax: inset(top right bottom left round radius) */</span>
+    <span class="property">clip-path</span>: <span class="value">inset(15% 15% 15% 15% round 30px)</span>;
+}</code></pre>
+        </div>
+
+        <h2>Using Images with shape-outside</h2>
         <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum totam in magnam laborum maiores pariatur distinctio laboriosam iste molestiae voluptate. Deserunt dolores iusto pariatur ipsam tempora alias debitis consequuntur amet assumenda hic. Nesciunt ipsam, mollitia iste quasi quis consectetur rerum eos? Ad temporibus doloribus voluptas minima magnam exercitationem. Voluptates explicabo minus neque, quasi ex quas dignissimos impedit eaque odit voluptate perferendis, sed quam! Cum rem, harum voluptatibus amet obcaecati ut eum quibusdam, tempore tenetur iste, necessitatibus praesentium maiores deleniti fugit incidunt. Ad accusantium amet vitae, repudiandae earum possimus soluta quisquam corrupti consequuntur perspiciatis, modi temporibus ducimus magni id? Unde, facilis.
+            Beyond the basic shape functions, you can also use images with transparency to create complex shape boundaries. The alpha channel of the image determines the shape.
         </p>
+        
+        <pre><code><span class="selector">.image-shape</span> {
+    <span class="property">float</span>: <span class="value">left</span>;
+    <span class="property">width</span>: <span class="value">300px</span>;
+    <span class="property">height</span>: <span class="value">300px</span>;
+    <span class="property">shape-outside</span>: <span class="value">url('shape.png')</span>;
+    <span class="code-comment">/* The transparent parts of the image define where text can flow */</span>
+}</code></pre>
+
+        <div class="note">
+            <strong>Pro Tip:</strong> When working with shape-outside, use the shape-margin property to add space between your shape and the surrounding text:
+            <pre><code><span class="property">shape-margin</span>: <span class="value">20px</span>; <span class="code-comment">/* Adds 20px of margin around the shape */</span></code></pre>
+        </div>
+
+        <h2>Browser Support</h2>
+        <p>
+            The shape-outside property has good support in modern browsers, but may require vendor prefixes for older browsers or have limited functionality in some environments.
+        </p>
+
+        <div class="browser-support">
+            <div class="browser">
+                <div class="browser-icon">🦊</div>
+                <div>Firefox</div>
+                <div>62+</div>
+            </div>
+            <div class="browser">
+                <div class="browser-icon">🌐</div>
+                <div>Chrome</div>
+                <div>37+</div>
+            </div>
+            <div class="browser">
+                <div class="browser-icon">🧭</div>
+                <div>Safari</div>
+                <div>10.1+</div>
+            </div>
+            <div class="browser">
+                <div class="browser-icon">🪟</div>
+                <div>Edge</div>
+                <div>79+</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>CSS Shape Outside Property Demo - Learn more about CSS Shapes on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside" target="_blank">MDN Web Docs</a></p>
+        </footer>
     </div>
 </body>
 </html>

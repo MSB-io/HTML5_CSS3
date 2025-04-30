@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Outside CSS Property</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid #000;
+            padding: 20px;
+            background-color: white;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .circle {
+            width: 150px;
+            height: 150px;
+            background-color: #D13B3B;
+            border-radius: 50%;
+            float: left;
+            shape-outside: circle();
+            margin-right: 50px;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            color: #444;
+            line-height: 1.6;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shape Outside CSS Property</h1>
+        
+        <div class="circle"></div>
+        
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum totam in magnam laborum maiores pariatur distinctio laboriosam iste molestiae voluptate. Deserunt dolores iusto pariatur ipsam tempora alias debitis consequuntur amet assumenda hic. Nesciunt ipsam, mollitia iste quasi quis consectetur rerum eos? Ad temporibus doloribus voluptas minima magnam exercitationem. Voluptates explicabo minus neque, quasi ex quas dignissimos impedit eaque odit voluptate perferendis, sed quam! Cum rem, harum voluptatibus amet obcaecati ut eum quibusdam, tempore tenetur iste, necessitatibus praesentium maiores deleniti fugit incidunt. Ad accusantium amet vitae, repudiandae earum possimus soluta quisquam corrupti consequuntur perspiciatis, modi temporibus ducimus magni id? Unde, facilis.
+        </p>
+    </div>
+</body>
+</html>

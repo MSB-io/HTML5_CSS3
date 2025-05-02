@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation, Pseudo-classes & Pseudo-elements Practice</title>
+    <style>
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 25px;
+            margin-top: 35px;
+            color: #2980b9;
+            font-size: 1.8rem;
+        }
+        
+        .task-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .task-description {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        /* Task 1: Basic Color Animation */
+        .box {
+            width: 100px;
+            height: 100px;
+            animation: colorChange 4s infinite alternate;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes colorChange {
+            from { background-color: #e74c3c; }
+            to { background-color: #f1c40f; }
+        }
+
+        /* Task 2: Multi-step Animation */
+        .multi-container {
+            width: 100%;
+            height: 120px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+        
+        .multi {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            animation: moveColor 5s infinite alternate;
+            border-radius: 8px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes moveColor {
+            0%   { left: 0; background: #e74c3c; }
+            25%  { left: 50px; background: #e67e22; }
+            50%  { left: 100px; background: #f1c40f; }
+            100% { left: calc(100% - 120px); background: #2ecc71; }
+        }
+
+        /* Task 3: Infinite Loop Animation */
+        .pulse {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #88d0ff, #dc83ff);
+            animation: pulseAnim 1s infinite alternate;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        @keyframes pulseAnim {
+            from { transform: scale(1); box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4); }
+            to   { transform: scale(1.2); box-shadow: 0 4px 25px rgba(52, 152, 219, 0.6); }
+        }
+
+        /* Task 4: Hover Effect */
+        .hover-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
+        }
+        
+        .hover-btn:hover {
+            background-color: #2ecc71;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(46, 204, 113, 0.4);
+        }
+
+        /* Task 5: Focus State Styling */
+        input {
+            padding: 12px;
+            margin: 15px 0;
+            width: 100%;
+            max-width: 300px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus {
+            border: 2px solid #3498db;
+            outline: none;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+            transform: scale(1.02);
+        }
+
+        /* Task 6: First-child Styling */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        li {
+            padding: 10px 15px;
+            margin: 5px 0;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        
+        li:hover {
+            transform: translateX(5px);
+        }
+        
+        li:first-child {
+            color: white;
+            background-color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* Task 7: Add Decorative Content */
+        h2::before {
+            content: "🔹 ";
+        }
+
+        /* Task 8: First-letter Styling */
+        .fancy-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .fancy-text::first-letter {
+            font-size: 250%;
+            color: #e67e22;
+            font-weight: bold;
+            float: left;
+            padding-right: 8px;
+            line-height: 0.8;
+        }
+
+        /* Task 9: Custom List Markers */
+        .custom-list {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        
+        .custom-list li {
+            position: relative;
+            padding-left: 25px;
+            background-color: transparent;
+        }
+        
+        .custom-list li::before {
+            content: "➤";
+            position: absolute;
+            left: 0;
+            color: #9b59b6;
+            font-weight: bold;
+        }
+
+        /* Task 10: Animated Button with Shine Effect */
+        .shine-btn {
+            position: relative;
+            padding: 14px 35px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            overflow: hidden;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(41, 128, 185, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .shine-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(41, 128, 185, 0.4);
+        }
+
+        .shine-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: skewX(-20deg);
+        }
+
+        .shine-btn:hover::after {
+            animation: slide-shine 0.75s linear forwards;
+        }
+
+        @keyframes slide-shine {
+            to { left: 125%; }
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            padding: 20px 0;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Animation, Pseudo-classes & Pseudo-elements Practice Set</h1>
+
+    <!-- Task 1: Basic Color Animation -->
+    <h2>Task 1: Basic Color Animation</h2>
+    <div class="task-container">
+        <div class="task-description">A simple color transition from red to yellow</div>
+        <div class="box"></div>
+    </div>
+
+    <!-- Task 2: Multi-step Animation -->
+    <h2>Task 2: Multi-step Animation</h2>
+    <div class="task-container">
+        <div class="task-description">An object moving across the screen while changing colors</div>
+        <div class="multi-container">
+            <div class="multi"></div>
+        </div>
+    </div>
+
+    <!-- Task 3: Infinite Loop Animation -->
+    <h2>Task 3: Infinite Loop Animation</h2>
+    <div class="task-container">
+        <div class="task-description">A pulsing circle that continuously scales up and down</div>
+        <div class="pulse"></div>
+    </div>
+
+    <!-- Task 4: Hover Effect -->
+    <h2>Task 4: Hover Effect</h2>
+    <div class="task-container">
+        <div class="task-description">A button that changes style when hovered over</div>
+        <button class="hover-btn">Hover Me</button>
+    </div>
+
+    <!-- Task 5: Focus State Styling -->
+    <h2>Task 5: Focus State Styling</h2>
+    <div class="task-container">
+        <div class="task-description">Input field that enhances its appearance when focused</div>
+        <input type="text" placeholder="Click here to focus me">
+    </div>
+
+    <!-- Task 6: First-child Styling -->
+    <h2>Task 6: First-child Styling</h2>
+    <div class="task-container">
+        <div class="task-description">The first item in this list has special styling</div>
+        <ul>
+            <li>First item (with special styling)</li>
+            <li>Second item</li>
+            <li>Third item</li>
+        </ul>
+    </div>
+
+    <!-- Task 7: Add Decorative Content -->
+    <h2>Introduction</h2>
+    <div class="task-container">
+        <div class="task-description">Notice the decorative element before this heading</div>
+        <p>CSS pseudo-elements allow adding decorative content to elements without using extra HTML.</p>
+    </div>
+
+    <!-- Task 8: First-letter Styling -->
+    <h2>Task 8: First-letter Styling</h2>
+    <div class="task-container">
+        <div class="task-description">The first letter of this paragraph has special styling</div>
+        <p class="fancy-text">Learning CSS is fun and powerful. With CSS, you can create beautiful and interactive web pages that engage users and enhance their experience. Mastering CSS animations, pseudo-classes, and pseudo-elements will take your web design skills to the next level.</p>
+    </div>
+
+    <!-- Task 9: Custom List Markers -->
+    <h2>Task 9: Custom List Markers</h2>
+    <div class="task-container">
+        <div class="task-description">This list uses custom markers instead of default bullets</div>
+        <ul class="custom-list">
+            <li>HTML - The structure of web pages</li>
+            <li>CSS - The styling language</li>
+            <li>JavaScript - The programming language</li>
+        </ul>
+    </div>
+
+    <!-- Task 10: Animated Button with Shine Effect -->
+    <h2>Task 10: Animated Button with Shine Effect</h2>
+    <div class="task-container">
+        <div class="task-description">A button with an animated shine effect on hover</div>
+        <button class="shine-btn">Click Me</button>
+    </div>
+
+    <footer>
+        CSS Animation, Pseudo-classes & Pseudo-elements Practice - Created with ❤️
+    </footer>
+</body>
+</html>

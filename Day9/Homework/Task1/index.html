@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dev Handbook</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        /* Details Styling */
+        details {
+            margin-bottom: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        details[open] {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Summary Styling */
+        summary {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            background: linear-gradient(to right, #e0f7fa, #b3e5fc);
+            outline: none;
+            list-style: none;
+            position: relative;
+            padding-left: 40px;
+            color: #1565c0;
+            transition: all 0.3s ease;
+        }
+        
+        /* Remove default arrow */
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        /* Custom arrow using ::before */
+        summary::before {
+            content: "▶";
+            position: absolute;
+            left: 15px;
+            color: #2196f3;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Rotate arrow when opened */
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+        
+        /* Content Styling */
+        details p, details ul {
+            padding: 15px 20px;
+            margin: 0;
+        }
+        
+        details[open] p, details[open] ul {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>📗 Student Dev Handbook</h1>
+    
+    <!-- All details have the same name to create accordion behavior -->
+    <details name="notes">
+        <summary>What is HTML?</summary>
+        <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page semantically and originally included cues for the appearance of the document. HTML elements are the building blocks of HTML pages and are represented by tags like <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;h1&gt;</code>, etc.</p>
+    </details>
+    
+    <details name="notes">
+        <summary>What is a Semantic Tag?</summary>
+        <p>Semantic tags like <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;header&gt;</code>, and <code>&lt;footer&gt;</code> convey meaning and structure to your content. They help browsers, search engines, and assistive technologies better understand the purpose of different parts of your webpage, improving accessibility and SEO.</p>
+    </details>
+    
+    <details name="notes">
+        <summary>Difference Between id and class</summary>
+        <p>In HTML and CSS:
+            <ul>
+                <li><strong>id</strong>: Must be unique on a page, can only be used once. Referenced with # in CSS.</li>
+                <li><strong>class</strong>: Can be reused multiple times on a page. Referenced with . in CSS.</li>
+                <li>An element can have multiple classes but only one id.</li>
+                <li>ids have higher specificity than classes in CSS.</li>
+            </ul>
+        </p>
+    </details>
+    
+    <details name="notes">
+        <summary>What is a &lt;summary&gt; Element?</summary>
+        <p>The <code>&lt;summary&gt;</code> element is used as a visible heading for its parent <code>&lt;details&gt;</code> element. It shows a disclosure widget that the user can click to show/hide the content. It's particularly useful for creating expandable/collapsible sections like FAQs, accordions, or info sections as demonstrated in this handbook.</p>
+    </details>
+    
+    <details name="notes">
+        <summary>What is CSS?</summary>
+        <p>CSS (Cascading Style Sheets) is a styling language used to describe the presentation of HTML documents. It controls layout, colors, fonts, and responsive design. CSS can be applied in three ways:
+            <ul>
+                <li><strong>Inline</strong>: Using the style attribute directly in HTML elements</li>
+                <li><strong>Internal</strong>: Using the <code>&lt;style&gt;</code> tag in the document head (like in this example)</li>
+                <li><strong>External</strong>: Linking to an external .css file with <code>&lt;link&gt;</code> tag</li>
+            </ul>
+        </p>
+    </details>
+</body>
+</html>
